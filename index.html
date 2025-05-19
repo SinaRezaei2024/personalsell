@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رضا رضایی - جزوه‌های کنکوری و امتحانات نهایی</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/shim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <!-- اضافه کردن jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <header data-aos="fade-down">
+        <div class="profile">
+            <img src="images/profile.jpg" alt="رضا رضایی">
+            <div class="profile-info">
+                <h1>رضا رضایی</h1>
+                <p>دبیر فیزیک | فارغ‌التحصیل مهندسی مکانیک دانشگاه شیراز</p>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/rezarezaei_physics/" target="_blank">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.14.0/instagram.svg" alt="اینستاگرام" class="social-icon">
+            </a>
+        </div>
+    </header>
+
+    <section class="about-me" data-aos="fade-up">
+        <h2>درباره من</h2>
+        <ul>
+            <li>➤ دبیر فیزیک با تجربه در آموزش مفاهیم کنکوری و امتحانات نهایی</li>
+            <li>➤ فارغ‌التحصیل مهندسی مکانیک از دانشگاه شیراز</li>
+            <li>➤ ارائه جزوه‌های جامع با تمرکز بر نکات کلیدی و حل مسئله</li>
+            <li>➤ همراهی با دانش‌آموزان برای موفقیت در آزمون‌های رقابتی</li>
+            <li>➤ اشتراک دانش و تجربه از طریق کانال اینستاگرام</li>
+        </ul>
+    </section>
+
+    <main>
+        <div class="section-header">
+            <h2 data-aos="fade-up">جزوه‌های کنکوری و امتحانات نهایی</h2>
+            <span class="cart-icon" data-aos="fade-up"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></span>
+        </div>
+        <div class="books-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="book-card">
+                <img src="images/book-10.jpg" alt="جزوه کنکور دهم">
+                <h3>جزوه کنکور دهم</h3>
+                <p>قیمت: 150,000 تومان</p>
+                <button class="btn" data-details='{"id":"book-10","title":"جزوه کنکور دهم","price":150000,"priceText":"150,000 تومان","pages":"100","print":"رنگی (چاپ دیجیتال)","desc":"جزوه جامع با نکات کنکوری و تست‌های استاندارد","image":"images/book-10.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+            </div>
+            <div class="book-card">
+                <img src="images/book-11.jpg" alt="جزوه کنکور یازدهم">
+                <h3>جزوه کنکور یازدهم</h3>
+                <p>قیمت: 160,000 تومان</p>
+                <button class="btn" data-details='{"id":"book-11","title":"جزوه کنکور یازدهم","price":160000,"priceText":"160,000 تومان","pages":"120","print":"رنگی (چاپ دیجیتال)","desc":"مفاهیم پیشرفته با حل مسئله","image":"images/book-11.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+            </div>
+            <div class="book-card">
+                <img src="images/book-12.jpg" alt="جزوه کنکور دوازدهم">
+                <h3>جزوه کنکور دوازدهم</h3>
+                <p>قیمت: 170,000 تومان</p>
+                <button class="btn" data-details='{"id":"book-12","title":"جزوه کنکور دوازدهم","price":170000,"priceText":"170,000 تومان","pages":"140","print":"رنگی (چاپ دیجیتال)","desc":"آمادگی کامل برای کنکور","image":"images/book-12.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+            </div>
+            <div class="book-card">
+                <img src="images/pack.jpg" alt="پک کامل">
+                <h3>پک کامل (هر سه جزوه)</h3>
+                <p>قیمت: 450,000 تومان</p>
+                <button class="btn" data-details='{"id":"pack","title":"پک کامل (هر سه جزوه)","price":450000,"priceText":"450,000 تومان","pages":"350","print":"رنگی (چاپ دیجیتال)","desc":"کامل‌ترین مجموعه کنکوری","image":"images/pack.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+            </div>
+            <div class="book-card">
+                <img src="images/book-final-10.jpg" alt="جزوه امتحانات نهایی دهم">
+                <h3>جزوه امتحانات نهایی دهم</h3>
+                <p>قیمت: 120,000 تومان</p>
+                <button class="btn" data-details='{"id":"book-final-10","title":"جزوه امتحانات نهایی دهم","price":120000,"priceText":"120,000 تومان","pages":"80","print":"سیاه‌وسفید (چاپ افست)","desc":"مناسب برای آمادگی امتحانات نهایی","image":"images/book-final-10.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+            </div>
+            <div class="book-card">
+                <img src="images/book-final-11.jpg" alt="جزوه امتحانات نهایی یازدهم">
+                <h3>جزوه امتحانات نهایی یازدهم</h3>
+                <p>قیمت: 130,000 تومان</p>
+                <button class="btn" data-details='{"id":"book-final-11","title":"جزوه امتحانات نهایی یازدهم","price":130000,"priceText":"130,000 تومان","pages":"90","print":"سیاه‌وسفید (چاپ افست)","desc":"تمرینات تخصصی برای امتحانات نهایی","image":"images/book-final-11.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+            </div>
+            <div class="book-card">
+                <img src="images/book-final-12.jpg" alt="جزوه امتحانات نهایی دوازدهم">
+                <h3>جزوه امتحانات نهایی دوازدهم</h3>
+                <p>قیمت: 140,000 تومان</p>
+                <button class="btn" data-details='{"id":"book-final-12","title":"جزوه امتحانات نهایی دوازدهم","price":140000,"priceText":"140,000 تومان","pages":"100","print":"سیاه‌وسفید (چاپ افست)","desc":"کلید موفقیت در امتحانات نهایی","image":"images/book-final-12.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+            </div>
+        </div>
+
+        <section class="notes-info" data-aos="fade-up">
+            <h2>نکته مهم درباره جزوه‌ها</h2>
+            <p>جزوه‌های ارائه‌شده صرفاً برای استفاده در کنار کلاس‌های آموزشی طراحی شده‌اند و به‌هیچ‌وجه برای خودخوانی مناسب نیستند. برای یادگیری کامل مفاهیم و موفقیت در کنکور و امتحانات نهایی، شرکت در کلاس‌های حضوری یا آنلاین الزامی است。</p>
+        </section>
+
+        <section class="contact-form" data-aos="fade-up" data-aos-delay="100">
+            <h2>ثبت‌نام در کلاس‌ها</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="نام و نام‌خانوادگی" required>
+                <input type="tel" id="phone" placeholder="شماره تماس" required>
+                <select id="grade" required>
+                    <option value="" disabled selected>پایه تحصیلی</option>
+                    <option value="10">دهم</option>
+                    <option value="11">یازدهم</option>
+                    <option value="12">دوازدهم</option>
+                    <option value="konkur">جامع کنکور</option>
+                </select>
+                <select id="major" required>
+                    <option value="" disabled selected>رشته تحصیلی</option>
+                    <option value="tajrobi">علوم تجربی</option>
+                    <option value="riazi">ریاضی فیزیک</option>
+                </select>
+                <button type="submit" class="btn">ارسال</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- پاپ‌آپ جزئیات -->
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h2 id="modalTitle"></h2>
+            <p><strong>قیمت:</strong> <span id="modalPrice"></span></p>
+            <p><strong>تعداد صفحات:</strong> <span id="modalPages"></span></p>
+            <p><strong>نوع چاپ:</strong> <span id="modalPrint"></span></p>
+            <p><strong>توضیحات:</strong> <span id="modalDesc"></span></p>
+            <button class="btn add-to-cart" data-id="">افزودن به سبد خرید</button>
+        </div>
+    </div>
+
+    <!-- پاپ‌آپ سبد خرید -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h2>سبد خرید</h2>
+            <div id="cartItems"></div>
+            <p><strong>قیمت کل:</strong> <span id="totalPrice">0 تومان</span></p>
+            <div id="userInfoForm">
+                <h3>اطلاعات تماس</h3>
+                <input type="text" id="userName" placeholder="نام و نام‌خانوادگی" required>
+                <input type="tel" id="userPhone" placeholder="شماره تماس" required>
+            </div>
+            <button class="btn checkout">نهایی کردن سفارش</button>
+            <!-- دکمه دانلود PDF -->
+            <button class="btn download-pdf">دانلود PDF</button>
+        </div>
+    </div>
+
+    <footer data-aos="fade-up">
+        <p>تمامی حقوق برای رضا رضایی محفوظ است © 1404</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment-jalaali@0.9.6/moment-jalaali.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

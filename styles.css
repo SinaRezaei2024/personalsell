@@ -1,0 +1,951 @@
+/* لود فونت‌های وزیر و بی‌یکان از مسیر محلی */
+@font-face {
+    font-family: 'Vazir';
+    src: url('fonts/Vazir-Medium-FD.woff2') format('woff2'),
+         url('fonts/Vazir-Medium-FD.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'B Yekan';
+    src: url('fonts/BYekan.woff2') format('woff2'),
+         url('fonts/BYekan.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Vazir', 'B Yekan', Arial, sans-serif;
+    font-feature-settings: "ss01"; /* اعداد فارسی */
+}
+
+body {
+    background: linear-gradient(135deg, #1E88E5, #8B0000);
+    color: #fff;
+}
+
+/* هدر */
+header {
+    background: #1E88E5;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #FFD700;
+    margin-left: 20px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+.profile-info h1 {
+    font-size: 32px;
+    color: #FFD700;
+}
+
+.profile-info p {
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+}
+
+.social-links a {
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+/* بخش درباره من */
+.about-me {
+    background: linear-gradient(135deg, #8B0000, #FFD700);
+    padding: 40px;
+    max-width: 1200px;
+    margin: 20px auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border: 2px solid #FFD700;
+    border-radius: 15px;
+    text-align: center;
+    animation: fadeInSection 1s ease-in;
+}
+
+.about-me h2 {
+    font-size: 36px;
+    background: linear-gradient(90deg, #FFD700, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.about-me ul {
+    list-style: none;
+    font-size: 20px;
+    line-height: 2;
+}
+
+.about-me li {
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: slideIn 0.5s ease-in forwards;
+}
+
+.about-me li:nth-child(1) { animation-delay: 0.2s; }
+.about-me li:nth-child(2) { animation-delay: 0.4s; }
+.about-me li:nth-child(3) { animation-delay: 0.6s; }
+.about-me li:nth-child(4) { animation-delay: 0.8s; }
+.about-me li:nth-child(5) { animation-delay: 1.0s; }
+
+.about-me li::before {
+    content: '➤';
+    color: #FFD700;
+    margin-left: 10px;
+}
+
+/* بخش اصلی */
+main {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 32px;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.book-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover img {
+    transform: scale(1.1);
+}
+
+.book-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.book-card p {
+    font-size: 18px;
+    color: #FFD700;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 200px;
+    padding: 12px 14px;
+    background: #FFD700;
+    color: #8B0000;
+    text-decoration: none;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.5;
+    height: auto;
+}
+
+.btn:hover {
+    background: #8B0000;
+    color: #FFD700;
+    transform: scale(1.05);
+}
+
+/* آیکون سبد خرید */
+.cart-icon {
+    background: #FFD700;
+    color: #8B0000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.cart-icon:hover {
+    transform: scale(1.2);
+}
+
+.cart-icon i {
+    font-size: 24px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background: #8B0000;
+    color: #FFD700;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* پاپ‌آپ */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 600px;
+    height: auto;
+    text-align: center;
+    position: relative;
+    overflow-y: auto;
+    animation: fadeInModal 0.3s ease-in;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    color: #8B0000;
+    margin-bottom: 20px;
+}
+
+.modal-content h3 {
+    color: #8B0000;
+    margin: 20px 0 10px;
+}
+
+.modal-content p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.add-to-cart {
+    margin-top: 20px;
+}
+
+/* پاپ‌آپ سبد خرید */
+#cartItems {
+    max-height: 50vh;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background: #f0f0f0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    flex-direction: row-reverse;
+}
+
+.cart-item-controls {
+    order: -1; /* جابه‌جایی دکمه‌ها به سمت چپ */
+    margin-right: 15px;
+}
+
+.cart-item-image {
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+.cart-item-info {
+    flex: 1;
+    text-align: right;
+    padding: 10px;
+    color: #333;
+}
+
+.cart-item-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.cart-item-desc {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.cart-item-price {
+    font-size: 16px;
+    color: #8B0000;
+    margin-bottom: 5px;
+}
+
+.quantity-btn {
+    background: #FFD700;
+    color: #8B0000;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background: #8B0000;
+    color: #FFD700;
+}
+
+.cart-item::after {
+    content: '✓';
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #28a745;
+    font-size: 18px;
+}
+
+#totalPrice {
+    font-size: 18px;
+    color: #8B0000;
+}
+
+#userInfoForm {
+    margin-top: 20px;
+    background: linear-gradient(135deg, #FFD700, #8B0000);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#userInfoForm h3 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+#userInfoForm input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 25px;
+    border: 1px solid #FFD700;
+    font-size: 16px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+#userInfoForm input:focus {
+    outline: none;
+    border-color: #8B0000;
+    box-shadow: 0 0 5px rgba(139, 0, 0, 0.5);
+}
+
+.checkout {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.download-pdf {
+    width: 100%;
+    margin-top: 10px;
+    background: #28a745;
+    color: #fff;
+}
+
+.download-pdf:hover {
+    background: #218838;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* فرم تماس */
+.contact-form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.contact-form h2 {
+    font-size: 28px;
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form select {
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    font-size: 16px;
+    text-align: center;
+}
+
+.contact-form select {
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5"><path fill="%238B0000" d="M0 0l5 5 5-5H0z"/></svg>') no-repeat right 10px center;
+    background-size: 10px;
+    padding-right: 30px;
+}
+
+.contact-form .btn {
+    align-self: center;
+}
+
+/* بخش توضیحات جزوه‌ها */
+.notes-info {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.notes-info h2 {
+    font-size: 28px;
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+
+.notes-info p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* فوتر */
+footer {
+    background: #1E88E5;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 16px;
+}
+
+/* انیمیشن‌ها */
+@keyframes fadeInSection {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ریسپانسیو */
+@media (max-width: 1024px) {
+    .profile img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-info h1 {
+        font-size: 28px;
+    }
+
+    .profile-info p {
+        font-size: 18px;
+    }
+
+    .about-me {
+        padding: 30px;
+    }
+
+    .about-me h2 {
+        font-size: 32px;
+    }
+
+    .about-me ul {
+        font-size: 18px;
+    }
+
+    main {
+        padding: 30px;
+    }
+
+    .books-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    .book-card {
+        padding: 15px;
+    }
+
+    .btn {
+        font-size: 14px;
+        max-width: 180px;
+        padding: 10px 12px;
+    }
+
+    .modal-content {
+        max-width: 85vw;
+    }
+
+    .cart-item-image {
+        width: 100px;
+    }
+
+    .cart-item-title {
+        font-size: 16px;
+    }
+
+    .cart-item-desc {
+        font-size: 12px;
+    }
+
+    .cart-item-price {
+        font-size: 14px;
+    }
+
+    .quantity-btn {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+
+    .cart-item-info {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .profile {
+        flex-direction: column;
+    }
+
+    .profile img {
+        width: 100px;
+        height: 100px;
+        margin: 0 0 15px 0;
+    }
+
+    .profile-info h1 {
+        font-size: 24px;
+    }
+
+    .profile-info p {
+        font-size: 16px;
+    }
+
+    .social-links {
+        margin-top: 15px;
+        justify-content: center;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .about-me {
+        padding: 20px;
+        margin: 10px auto;
+    }
+
+    .about-me h2 {
+        font-size: 28px;
+    }
+
+    .about-me ul {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .cart-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .cart-icon i {
+        font-size: 20px;
+    }
+
+    .cart-count {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        top: -8px;
+        left: -8px;
+    }
+
+    .books-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .book-card {
+        padding: 12px;
+    }
+
+    .book-card h3 {
+        font-size: 18px;
+    }
+
+    .book-card p {
+        font-size: 16px;
+    }
+
+    .btn {
+        font-size: 14px;
+        max-width: 160px;
+        padding: 10px 12px;
+    }
+
+    .notes-info {
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .notes-info h2 {
+        font-size: 24px;
+    }
+
+    .notes-info p {
+        font-size: 16px;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .contact-form h2 {
+        font-size: 24px;
+    }
+
+    .contact-form form {
+        max-width: 400px;
+    }
+
+    .contact-form input,
+    .contact-form select {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .modal-content {
+        width: 90vw;
+        padding: 15px;
+    }
+
+    .modal-content h2 {
+        font-size: 24px;
+    }
+
+    .modal-content p {
+        font-size: 14px;
+    }
+
+    .cart-item-image {
+        width: 80px;
+    }
+
+    .cart-item-title,
+    .cart-item-price {
+        font-size: 14px;
+    }
+
+    .cart-item-desc {
+        font-size: 12px;
+    }
+
+    .quantity-btn {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+
+    #totalPrice {
+        font-size: 16px;
+    }
+
+    #userInfoForm {
+        padding: 15px;
+    }
+
+    #userInfoForm h3 {
+        font-size: 20px;
+    }
+
+    #userInfoForm input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .checkout {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-info h1 {
+        font-size: 20px;
+    }
+
+    .profile-info p {
+        font-size: 14px;
+    }
+
+    .social-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .about-me {
+        padding: 15px;
+    }
+
+    .about-me h2 {
+        font-size: 24px;
+    }
+
+    .about-me ul {
+        font-size: 14px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .books-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .book-card {
+        padding: 12px;
+    }
+
+    .book-card h3 {
+        font-size: 16px;
+    }
+
+    .book-card p {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 12px;
+        max-width: 160px;
+        padding: 10px 12px;
+    }
+
+    .notes-info {
+        padding: 15px;
+    }
+
+    .notes-info h2 {
+        font-size: 20px;
+    }
+
+    .notes-info p {
+        font-size: 14px;
+    }
+
+    .contact-form {
+        padding: 15px;
+    }
+
+    .contact-form h2 {
+        font-size: 20px;
+    }
+
+    .contact-form form {
+        max-width: 300px;
+    }
+
+    .contact-form input,
+    .contact-form select {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .modal-content {
+        padding: 10px;
+    }
+
+    .modal-content h2 {
+        font-size: 20px;
+    }
+
+    .modal-content p {
+        font-size: 12px;
+    }
+
+    .cart-item-image {
+        width: 80px;
+    }
+
+    .cart-item-title,
+    .cart-item-price {
+        font-size: 12px;
+    }
+
+    .cart-item-desc {
+        font-size: 10px;
+    }
+
+    #userInfoForm {
+        padding: 10px;
+    }
+
+    #userInfoForm h3 {
+        font-size: 18px;
+    }
+
+    #userInfoForm input {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .checkout {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .quantity-btn {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+    }
+}
