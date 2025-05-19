@@ -68,6 +68,13 @@ header {
     align-items: center;
 }
 
+.social-text {
+    font-size: 20px; /* درشت‌تر کردن متن */
+    font-weight: bold; /* برای تأکید بیشتر */
+    color: #FFD700;
+    margin-left: 10px;
+}
+
 .social-links a {
     margin-left: 15px;
     text-decoration: none;
@@ -109,6 +116,7 @@ header {
     list-style: none;
     font-size: 20px;
     line-height: 2;
+    color: #000; /* تغییر رنگ فونت به مشکی */
 }
 
 .about-me li {
@@ -153,6 +161,7 @@ h2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
+    padding: 0 20px; /* فاصله از کناره‌ها */
 }
 
 .book-card {
@@ -161,11 +170,12 @@ h2 {
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* افزایش سایه */
 }
 
 .book-card:hover {
     transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7); /* سایه بیشتر هنگام هاور */
 }
 
 .book-card img {
@@ -183,6 +193,7 @@ h2 {
 .book-card h3 {
     font-size: 20px;
     margin-bottom: 10px;
+    color: #000; /* تغییر رنگ نام آیتم به مشکی */
 }
 
 .book-card p {
@@ -439,19 +450,6 @@ h2 {
     margin-top: 20px;
 }
 
-.download-pdf {
-    width: 100%;
-    margin-top: 10px;
-    background: #28a745;
-    color: #fff;
-}
-
-.download-pdf:hover {
-    background: #218838;
-    color: #fff;
-    transform: scale(1.05);
-}
-
 /* فرم تماس */
 .contact-form {
     background: rgba(255, 255, 255, 0.1);
@@ -622,19 +620,27 @@ footer p {
 
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        text-align: center;
         padding: 15px;
+        flex-wrap: wrap; /* اجازه می‌ده تا محتوا در صورت نیاز به خط بعدی بره */
     }
 
     .profile {
-        flex-direction: column;
+        display: flex;
+        align-items: center;
+        flex-direction: row; /* تصویر و متن کنار هم */
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 15px;
     }
 
     .profile img {
         width: 100px;
         height: 100px;
-        margin: 0 0 15px 0;
+        margin: 0 0 0 15px; /* فاصله از متن */
+    }
+
+    .profile-info {
+        text-align: right;
     }
 
     .profile-info h1 {
@@ -646,8 +652,15 @@ footer p {
     }
 
     .social-links {
-        margin-top: 15px;
+        width: 100%;
         justify-content: center;
+        margin-top: 10px;
+    }
+
+    .social-text {
+        font-size: 16px; /* درشت‌تر کردن متن در موبایل */
+        font-weight: bold;
+        margin-left: 8px;
     }
 
     .social-icon {
@@ -674,12 +687,16 @@ footer p {
     }
 
     .section-header {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row; /* همیشه کنار هم باشن */
+        align-items: center;
+        justify-content: space-between;
         gap: 10px;
+        flex-wrap: nowrap; /* جلوگیری از رفتن به خط بعدی */
     }
 
     h2 {
-        font-size: 28px;
+        font-size: 24px; /* کاهش سایز فونت */
     }
 
     .cart-icon {
@@ -700,12 +717,18 @@ footer p {
     }
 
     .books-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* کاهش اندازه باکس‌ها */
         gap: 15px;
+        padding: 0 15px; /* فاصله از کناره‌ها */
     }
 
     .book-card {
         padding: 12px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5); /* افزایش سایه */
+    }
+
+    .book-card:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
     }
 
     .book-card h3 {
@@ -812,6 +835,7 @@ footer p {
     .profile img {
         width: 80px;
         height: 80px;
+        margin-left: 10px;
     }
 
     .profile-info h1 {
@@ -820,6 +844,12 @@ footer p {
 
     .profile-info p {
         font-size: 14px;
+    }
+
+    .social-text {
+        font-size: 14px; /* درشت‌تر کردن متن در موبایل */
+        font-weight: bold;
+        margin-left: 6px;
     }
 
     .social-icon {
@@ -843,17 +873,49 @@ footer p {
         padding: 15px;
     }
 
+    .section-header {
+        display: flex;
+        flex-direction: row; /* همیشه کنار هم باشن */
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        flex-wrap: nowrap; /* جلوگیری از رفتن به خط بعدی */
+    }
+
     h2 {
-        font-size: 24px;
+        font-size: 20px; /* کاهش بیشتر سایز فونت */
+    }
+
+    .cart-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .cart-icon i {
+        font-size: 18px;
+    }
+
+    .cart-count {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+        top: -6px;
+        left: -6px;
     }
 
     .books-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* کاهش بیشتر اندازه باکس‌ها */
         gap: 10px;
+        padding: 0 10px; /* فاصله از کناره‌ها */
     }
 
     .book-card {
-        padding: 12px;
+        padding: 10px;
+        box-shadow: 0 5px 14px rgba(0, 0, 0, 0.5); /* افزایش سایه */
+    }
+
+    .book-card:hover {
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
     }
 
     .book-card h3 {
@@ -866,8 +928,8 @@ footer p {
 
     .btn {
         font-size: 12px;
-        max-width: 160px;
-        padding: 10px 12px;
+        max-width: 140px;
+        padding: 8px 10px;
     }
 
     .notes-info {
