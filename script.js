@@ -20,6 +20,32 @@ document.addEventListener('DOMContentLoaded', () => {
         cartCount.textContent = totalItems;
     }
 
+    // نمایش پیام در پاپ‌آپ
+    function showMessage(elementId, message, type) {
+        const messageContainer = document.createElement('div');
+        messageContainer.className = `message ${type}`;
+        messageContainer.textContent = message;
+
+        let targetElement;
+        if (elementId === 'bookModal') {
+            targetElement = document.querySelector('#bookModal .modal-details');
+        } else if (elementId === 'cartModal') {
+            targetElement = document.getElementById('totalPrice').parentElement;
+        } else if (elementId === 'contactForm') {
+            targetElement = document.getElementById('contactForm');
+        }
+
+        const existingMessage = targetElement.querySelector('.message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+
+        targetElement.appendChild(messageContainer);
+        setTimeout(() => {
+            messageContainer.remove();
+        }, 1500); // پیام بعد از 1.5 ثانیه محو می‌شه
+    }
+
     // آپدیت پاپ‌آپ سبد خرید
     function updateCartModal() {
         const cartItems = document.getElementById('cartItems');
@@ -69,34 +95,18 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('cart', JSON.stringify(cart));
     }
 
-    // تابع کمکی برای تبدیل باینری به فایل
-    function s2ab(s) {
-        const buf = new ArrayBuffer(s.length);
-        const view = new Uint8Array(buf);
-        for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
-        return buf;
-    }
-
-    // ایجاد فایل اکسل
-    function generateExcel(userName, userPhone) {
+    // ایجاد فایل JSON
+    function generateJSON(userName, userPhone) {
         try {
-            console.log('Generating Excel...');
+            console.log('Generating JSON...');
             console.log('User:', userName, 'Phone:', userPhone, 'Cart:', cart);
 
             const now = moment();
-            const jalaaliDate = now.format('jYYYY/jMM/jDD');
-            const time = now.format('HH:mm');
+            const date = now.format('YYYY-MM-DD'); // مثلاً 2025-05-20
+            const time = now.format('HH:mm:ss'); // مثلاً 11:19:00
 
-            // داده‌های هدر
-            const headerData = [
-                ['نام سفارش‌دهنده', 'تاریخ', 'ساعت'],
-                [userName, jalaaliDate, time],
-                [] // خط خالی
-            ];
-
-            // داده‌های جدول
-            const tableHeaders = ['قیمت کل (تومان)', 'تعداد', 'قیمت واحد (تومان)', 'نام جزوه'];
-            let tableRows = [];
+            // جمع‌آوری سفارش‌ها
+            let orders = [];
             let totalPrice = 0;
 
             for (const id in cart) {
@@ -105,71 +115,54 @@ document.addEventListener('DOMContentLoaded', () => {
                     const details = JSON.parse(item);
                     const itemTotal = details.price * cart[id];
                     totalPrice += itemTotal;
-                    tableRows.push([
-                        itemTotal.toLocaleString('fa-IR'),
-                        cart[id],
-                        details.price.toLocaleString('fa-IR'),
-                        details.title
-                    ]);
-                }
-            }
-            tableRows.push(['', '', '', 'جمع کل']);
-            tableRows.push([totalPrice.toLocaleString('fa-IR'), '', '', '']);
 
-            // ترکیب داده‌ها
-            const wsData = [
-                ...headerData,
-                tableHeaders,
-                ...tableRows
-            ];
-
-            // ایجاد شیت با جهت RTL
-            const ws = XLSX.utils.aoa_to_sheet(wsData);
-            ws['!cols'] = [
-                { wpx: 120 }, // قیمت کل
-                { wpx: 80 },  // تعداد
-                { wpx: 120 }, // قیمت واحد
-                { wpx: 250 }  // نام جزوه
-            ];
-            ws['!rows'] = wsData.map(() => ({ hpx: 30 }));
-            ws['!dir'] = 'rtl';
-
-            // تنظیم راست‌چین و حاشیه برای سلول‌ها
-            for (let R = 0; R < wsData.length; R++) {
-                for (let C = 0; C < wsData[R].length; C++) {
-                    const cellRef = XLSX.utils.encode_cell({ r: R, c: C });
-                    if (!ws[cellRef]) continue;
-                    ws[cellRef].s = {
-                        alignment: { horizontal: 'right', vertical: 'center' },
-                        border: {
-                            top: { style: 'thin', color: { rgb: '000000' } },
-                            bottom: { style: 'thin', color: { rgb: '000000' } },
-                            left: { style: 'thin', color: { rgb: '000000' } },
-                            right: { style: 'thin', color: { rgb: '000000' } }
-                        }
-                    };
+                    orders.push({
+                        "title": details.title, // استفاده از عنوان فارسی
+                        "quantity": cart[id],
+                        "totalPrice": `${itemTotal.toLocaleString('en-US')} Toman`
+                    });
                 }
             }
 
-            // ایجاد فایل اکسل
-            const wb = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(wb, ws, 'سفارش');
-            const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
-            const fileName = `order_${jalaaliDate}_${time.replace(':', '-')}.xlsx`;
+            // ساختار فایل JSON
+            const jsonData = {
+                "fullName": userName,
+                "phoneNumber": userPhone,
+                "date": date,
+                "time": time,
+                "orders": orders,
+                "totalAmount": `${totalPrice.toLocaleString('en-US')} Toman`
+            };
 
-            // دانلود فایل
-            const blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
+            // تبدیل به رشته JSON
+            const jsonString = JSON.stringify(jsonData, null, 2);
+
+            // ایجاد فایل JSON
+            const fileName = `order_${date}_${time.replace(/:/g, '-')}.json`;
+            const blob = new Blob([jsonString], { type: 'application/json' });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
             link.download = fileName;
             link.click();
             URL.revokeObjectURL(link.href);
 
-            console.log('Excel generated successfully:', fileName);
+            console.log('JSON generated successfully:', fileName);
         } catch (error) {
-            console.error('Error generating Excel:', error);
-            alert('خطایی در تولید فایل اکسل رخ داد. لطفاً دوباره امتحان کنید.');
+            console.error('Error generating JSON:', error);
+            showMessage('cartModal', 'خطایی در تولید فایل JSON رخ داد. لطفاً دوباره امتحان کنید.', 'error');
         }
+    }
+
+    // اعتبارسنجی نام (فقط حروف فارسی و فاصله)
+    function validateName(name) {
+        const persianRegex = /^[\u0600-\u06FF\s]+$/;
+        return persianRegex.test(name.trim());
+    }
+
+    // اعتبارسنجی شماره تلفن (شروع با 0 و طول 11)
+    function validatePhone(phone) {
+        const phoneRegex = /^0[0-9]{10}$/;
+        return phoneRegex.test(phone.trim());
     }
 
     // اضافه کردن به سبد با محدودیت 10 عدد
@@ -177,14 +170,14 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             const id = button.dataset.id;
             if (cart[id] >= 10) {
-                alert('حداکثر 10 عدد از هر کتاب قابل سفارش است!');
+                showMessage('bookModal', 'حداکثر 10 عدد از هر کتاب قابل سفارش است!', 'error');
                 return;
             }
             cart[id] = (cart[id] || 0) + 1;
             saveCart();
             updateCartIcon();
-            alert(`${JSON.parse(document.querySelector(`.book-card .btn[data-details*='"id":"${id}"']`).dataset.details).title} به سبد خرید اضافه شد.`);
-            document.getElementById('bookModal').style.display = 'none';
+            const title = JSON.parse(document.querySelector(`.book-card .btn[data-details*='"id":"${id}"']`).dataset.details).title;
+            showMessage('bookModal', `${title} به سبد خرید اضافه شد.`, 'success');
         });
     });
 
@@ -243,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const id = e.target.dataset.id;
             if (e.target.classList.contains('increase')) {
                 if (cart[id] >= 10) {
-                    alert('حداکثر 10 عدد از هر کتاب قابل سفارش است!');
+                    showMessage('cartModal', 'حداکثر 10 عدد از هر کتاب قابل سفارش است!', 'error');
                     return;
                 }
                 cart[id]++;
@@ -262,13 +255,24 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         console.log('Checkout button clicked');
         if (Object.keys(cart).length === 0) {
-            alert('سبد خرید خالی است!');
+            showMessage('cartModal', 'سبد خرید خالی است', 'error');
         } else {
             const userName = document.getElementById('userName').value.trim();
             const userPhone = document.getElementById('userPhone').value.trim();
+
+            if (!validateName(userName)) {
+                showMessage('cartModal', 'نام باید فقط شامل حروف فارسی باشد.', 'error');
+                return;
+            }
+
+            if (!validatePhone(userPhone)) {
+                showMessage('cartModal', 'شماره تلفن باید با 0 شروع شده و 11 رقم باشد.', 'error');
+                return;
+            }
+
             if (userName && userPhone) {
-                generateExcel(userName, userPhone);
-                alert('سفارش ثبت شد و فایل اکسل دانلود شد.');
+                generateJSON(userName, userPhone);
+                showMessage('cartModal', 'سفارش شما ثبت شد و نتیجه آن به شما اطلاع داده می‌شود', 'success');
                 cart = {};
                 saveCart();
                 updateCartIcon();
@@ -277,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('userName').value = '';
                 document.getElementById('userPhone').value = '';
             } else {
-                alert('لطفاً نام و شماره تماس را وارد کنید.');
+                showMessage('cartModal', 'لطفاً نام و شماره تماس را وارد کنید.', 'error');
             }
         }
     });
@@ -302,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.open(`https://www.instagram.com/direct/new/?text=${message}`, '_blank');
             contactForm.reset();
         } else {
-            alert('لطفاً تمام فیلدها را پر کنید.');
+            showMessage('contactForm', 'لطفاً تمام فیلدها را پر کنید.', 'error');
         }
     });
 

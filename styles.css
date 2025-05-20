@@ -274,17 +274,17 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7); /* پس‌زمینه تیره‌تر */
     align-items: center;
     justify-content: center;
     z-index: 1000;
 }
 
 .modal-content {
-    background: #fff;
+    background: linear-gradient(135deg, #fff, #f0f0f0); /* گرادینت پس‌زمینه */
     color: #333;
-    padding: 20px;
-    border-radius: 15px;
+    padding: 30px;
+    border-radius: 20px;
     max-width: 90vw;
     max-height: 90vh;
     width: 600px;
@@ -292,28 +292,43 @@ h2 {
     text-align: center;
     position: relative;
     overflow-y: auto;
-    animation: fadeInModal 0.3s ease-in;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* سایه قوی‌تر */
+    border: 2px solid #FFD700; /* حاشیه طلایی */
+    animation: popIn 0.5s ease-out; /* انیمیشن ورود */
 }
 
 .close {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 15px;
-    font-size: 24px;
+    font-size: 28px;
     cursor: pointer;
+    color: #8B0000;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #FFD700;
 }
 
 .modal-content h2 {
     color: #8B0000;
     margin-bottom: 20px;
+    font-size: 28px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .modal-content h3 {
     color: #8B0000;
     margin: 20px 0 10px;
+    font-size: 24px;
 }
 
-.modal-content p {
+.modal-details {
+    margin-bottom: 20px;
+}
+
+.modal-details p {
     font-size: 16px;
     margin-bottom: 10px;
     color: #333;
@@ -321,6 +336,37 @@ h2 {
 
 .add-to-cart {
     margin-top: 20px;
+    background: #28a745; /* سبز برای دکمه افزودن */
+    color: #fff;
+}
+
+.add-to-cart:hover {
+    background: #218838;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* استایل پیام‌ها */
+.message {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    animation: fadeInMessage 0.5s ease-in;
+    width: 100%; /* عرض کامل */
+    margin: 20px auto 0; /* فاصله 20px از بالا */
+}
+
+.message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
 /* پاپ‌آپ سبد خرید */
@@ -448,6 +494,14 @@ h2 {
 .checkout {
     width: 100%;
     margin-top: 20px;
+    background: #007bff; /* آبی برای دکمه نهایی کردن */
+    color: #fff;
+}
+
+.checkout:hover {
+    background: #0056b3;
+    color: #fff;
+    transform: scale(1.05);
 }
 
 /* فرم تماس */
@@ -536,9 +590,15 @@ footer p {
     to { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes fadeInModal {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.8) rotate(-5deg); }
+    60% { opacity: 1; transform: scale(1.05) rotate(2deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes fadeInMessage {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ریسپانسیو */
@@ -589,6 +649,7 @@ footer p {
 
     .modal-content {
         max-width: 85vw;
+        padding: 25px;
     }
 
     .cart-item-image {
@@ -614,6 +675,11 @@ footer p {
     }
 
     .cart-item-info {
+        padding: 8px;
+    }
+
+    .message {
+        font-size: 14px;
         padding: 8px;
     }
 }
@@ -778,14 +844,18 @@ footer p {
 
     .modal-content {
         width: 90vw;
-        padding: 15px;
+        padding: 20px;
     }
 
     .modal-content h2 {
         font-size: 24px;
     }
 
-    .modal-content p {
+    .modal-content h3 {
+        font-size: 20px;
+    }
+
+    .modal-details p {
         font-size: 14px;
     }
 
@@ -828,6 +898,11 @@ footer p {
     .checkout {
         font-size: 14px;
         padding: 10px;
+    }
+
+    .message {
+        font-size: 14px;
+        padding: 8px;
     }
 }
 
@@ -963,14 +1038,18 @@ footer p {
     }
 
     .modal-content {
-        padding: 10px;
+        padding: 15px;
     }
 
     .modal-content h2 {
         font-size: 20px;
     }
 
-    .modal-content p {
+    .modal-content h3 {
+        font-size: 18px;
+    }
+
+    .modal-details p {
         font-size: 12px;
     }
 
@@ -1009,5 +1088,10 @@ footer p {
         width: 20px;
         height: 20px;
         font-size: 12px;
+    }
+
+    .message {
+        font-size: 12px;
+        padding: 6px;
     }
 }
