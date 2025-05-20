@@ -116,7 +116,7 @@ header {
     list-style: none;
     font-size: 20px;
     line-height: 2;
-    color: #000; /* تغییر رنگ فونت به مشکی */
+    color: #fff; /* تغییر رنگ فونت به سفید */
 }
 
 .about-me li {
@@ -193,7 +193,7 @@ h2 {
 .book-card h3 {
     font-size: 20px;
     margin-bottom: 10px;
-    color: #000; /* تغییر رنگ نام آیتم به مشکی */
+    color: #fff; /* تغییر رنگ نام آیتم به سفید */
 }
 
 .book-card p {
@@ -608,7 +608,8 @@ footer p {
         height: 120px;
     }
 
-    .profile-info h1 {
+    .profile-info h1 
+    {
         font-size: 28px;
     }
 
