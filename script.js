@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // سبد خرید
     let cart = JSON.parse(localStorage.getItem('cart')) || {};
+    let totalPrice = 0; // متغیر برای ذخیره مبلغ کل
 
     // فرمت کردن قیمت به تومان
     function formatPrice(price) {
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalPriceEl = document.getElementById('totalPrice');
         const userInfoForm = document.getElementById('userInfoForm');
         cartItems.innerHTML = '';
-        let totalPrice = 0;
+        totalPrice = 0; // ریست کردن مبلغ کل
         let hasItems = false;
 
         for (const id in cart) {
@@ -95,62 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('cart', JSON.stringify(cart));
     }
 
-    // ایجاد فایل JSON
-    function generateJSON(userName, userPhone) {
-        try {
-            console.log('Generating JSON...');
-            console.log('User:', userName, 'Phone:', userPhone, 'Cart:', cart);
-
-            const now = moment();
-            const date = now.format('YYYY-MM-DD'); // مثلاً 2025-05-20
-            const time = now.format('HH:mm:ss'); // مثلاً 11:19:00
-
-            // جمع‌آوری سفارش‌ها
-            let orders = [];
-            let totalPrice = 0;
-
-            for (const id in cart) {
-                if (cart[id] > 0) {
-                    const item = document.querySelector(`.book-card .btn[data-details*='"id":"${id}"']`).dataset.details;
-                    const details = JSON.parse(item);
-                    const itemTotal = details.price * cart[id];
-                    totalPrice += itemTotal;
-
-                    orders.push({
-                        "title": details.title, // استفاده از عنوان فارسی
-                        "quantity": cart[id],
-                        "totalPrice": `${itemTotal.toLocaleString('en-US')} Toman`
-                    });
-                }
-            }
-
-            // ساختار فایل JSON
-            const jsonData = {
-                "fullName": userName,
-                "phoneNumber": userPhone,
-                "date": date,
-                "time": time,
-                "orders": orders,
-                "totalAmount": `${totalPrice.toLocaleString('en-US')} Toman`
-            };
-
-            // تبدیل به رشته JSON
-            const jsonString = JSON.stringify(jsonData, null, 2);
-
-            // ایجاد فایل JSON
-            const fileName = `order_${date}_${time.replace(/:/g, '-')}.json`;
-            const blob = new Blob([jsonString], { type: 'application/json' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = fileName;
-            link.click();
-            URL.revokeObjectURL(link.href);
-
-            console.log('JSON generated successfully:', fileName);
-        } catch (error) {
-            console.error('Error generating JSON:', error);
-            showMessage('cartModal', 'خطایی در تولید فایل JSON رخ داد. لطفاً دوباره امتحان کنید.', 'error');
-        }
+    // هدایت به زرین‌لینک
+    function redirectToZarinLink(userName, userPhone, totalAmount) {
+        const zarinLinkBase = 'https://zarinp.al/rezarezaeipayment'; // لینک زرین‌لینک شما
+        const description = `پرداخت سفارش - نام: ${userName}, شماره: ${userPhone}, مبلغ: ${totalAmount} تومان`;
+        const finalLink = `${zarinLinkBase}?amount=${totalAmount * 10}&description=${encodeURIComponent(description)}`; // مبلغ به ریال (×10)
+        window.location.href = finalLink;
     }
 
     // اعتبارسنجی نام (فقط حروف فارسی و فاصله)
@@ -250,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // نهایی کردن سفارش
+    // نهایی کردن سفارش و هدایت به زرین‌لینک
     document.querySelector('.checkout').addEventListener('click', (e) => {
         e.preventDefault();
         console.log('Checkout button clicked');
@@ -271,15 +222,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (userName && userPhone) {
-                generateJSON(userName, userPhone);
-                showMessage('cartModal', 'سفارش شما ثبت شد و نتیجه آن به شما اطلاع داده می‌شود', 'success');
+                redirectToZarinLink(userName, userPhone, totalPrice);
+                showMessage('cartModal', 'به صفحه پرداخت هدایت می‌شوید...', 'success');
                 cart = {};
                 saveCart();
                 updateCartIcon();
                 updateCartModal();
-                document.getElementById('cartModal').style.display = 'none';
-                document.getElementById('userName').value = '';
-                document.getElementById('userPhone').value = '';
+                setTimeout(() => {
+                    document.getElementById('cartModal').style.display = 'none';
+                    document.getElementById('userName').value = '';
+                    document.getElementById('userPhone').value = '';
+                }, 1500);
             } else {
                 showMessage('cartModal', 'لطفاً نام و شماره تماس را وارد کنید.', 'error');
             }
