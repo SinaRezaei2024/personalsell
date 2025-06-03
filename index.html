@@ -8,9 +8,11 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
+    <div id="particles-js"></div>
     <header data-aos="fade-down">
         <div class="logo">
             <h1>پلتفرم آموزشی کنکور</h1>
@@ -42,7 +44,7 @@
             </div>
         </section>
 
-        <section class="books" data-aos="fade-up">
+        <section class="books" data-aos="fade-in">
             <div class="section-header">
                 <h2>جزوه‌های کنکوری و امتحانات نهایی</h2>
             </div>
@@ -50,50 +52,50 @@
             <div class="teacher-section" data-subject="math">
                 <div class="teacher-info">
                     <img src="images/nima.jpg" alt="نیما رضایی" class="teacher-image">
-                    <h3>نیما رضایی - دبیر ریاضی کنکور</h3>
+                    <h3>نیما رضایی - دبیر ریاضی</h3>
                 </div>
                 <div class="books-scroll">
-                    <div class="book-card" data-subject="math" data-grade="10" data-aos="zoom-in">
+                    <div class="book-card" data-subject="math" data-grade="10" data-aos="rotate-in">
                         <img src="images/math-10.jpg" alt="جزوه کنکور دهم ریاضی">
                         <h3>جزوه کنکور دهم ریاضی</h3>
                         <p>قیمت: 35,000 تومان</p>
-                        <button class="btn" data-details='{"id":"math-10","title":"جزوه کنکور دهم ریاضی","price":35000,"pages":"180 صفحه","print":"تک‌رنگ","desc":"جزوه کامل ریاضی پایه دهم با نکات کنکوری - نیما رضایی","image":"images/math-10.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"math-10","title":"جزوه کنکور دهم ریاضی","price":35000,"pages":"180 صفحه","print":"تک‌رنگ","desc":"جزوه کامل ریاضی پایه دهم - نیما رضایی","image":"images/math-10.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="math" data-grade="11" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="book-card" data-subject="math" data-grade="11" data-aos="rotate-in" data-aos-delay="100">
                         <img src="images/math-11.jpg" alt="جزوه کنکور یازدهم ریاضی">
                         <h3>جزوه کنکور یازدهم ریاضی</h3>
                         <p>قیمت: 170,000 تومان</p>
-                        <button class="btn" data-details='{"id":"math-11","title":"جزوه کنکور یازدهم ریاضی","price":170000,"pages":"220 صفحه","print":"تک‌رنگ","desc":"جزوه کامل ریاضی پایه یازدهم با نکات کنکوری - نیما رضایی","image":"images/math-11.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"math-11","title":"جزوه کنکور یازدهم ریاضی","price":170000,"pages":"220 صفحه","print":"تک‌رنگ","desc":"جزوه کامل ریاضی پایه یازدهم - نیما رضایی","image":"images/math-11.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="math" data-grade="12" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="book-card" data-subject="math" data-grade="12" data-aos="rotate-in" data-aos-delay="200">
                         <img src="images/math-12.jpg" alt="جزوه کنکور دوازدهم ریاضی">
                         <h3>جزوه کنکور دوازدهم ریاضی</h3>
                         <p>قیمت: 180,000 تومان</p>
-                        <button class="btn" data-details='{"id":"math-12","title":"جزوه کنکور دوازدهم ریاضی","price":180000,"pages":"240 صفحه","print":"تک‌رنگ","desc":"جزوه کامل ریاضی پایه دوازدهم با نکات کنکوری - نیما رضایی","image":"images/math-12.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"math-12","title":"جزوه کنکور دوازدهم ریاضی","price":180000,"pages":"240 صفحه","print":"تک‌رنگ","desc":"جزوه کامل ریاضی پایه دوازدهم - نیما رضایی","image":"images/math-12.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="math" data-grade="pack" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="book-card" data-subject="math" data-grade="pack" data-aos="rotate-in" data-aos-delay="300">
                         <img src="images/math-pack.jpg" alt="پک کامل ریاضی">
                         <h3>پک کامل ریاضی (هر سه جزوه)</h3>
                         <p>قیمت: 480,000 تومان</p>
-                        <button class="btn" data-details='{"id":"math-pack","title":"پک کامل ریاضی (هر سه جزوه)","price":480000,"pages":"640 صفحه","print":"تک‌رنگ","desc":"پک کامل جزوه‌های ریاضی کنکور برای هر سه پایه - نیما رضایی","image":"images/math-pack.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"math-pack","title":"پک کامل ریاضی","price":480000,"pages":"640 صفحه","print":"تک‌رنگ","desc":"پک کامل جزوه‌های ریاضی تمام پایه‌ها - نیما رضایی","image":"images/math-pack.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="math" data-grade="10" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="book-card" data-subject="math" data-grade="10" data-aos="rotate-in" data-aos-delay="400">
                         <img src="images/math-final-10.jpg" alt="جزوه امتحانات نهایی دهم ریاضی">
                         <h3>جزوه امتحانات نهایی دهم ریاضی</h3>
                         <p>قیمت: 130,000 تومان</p>
                         <button class="btn" data-details='{"id":"math-final-10","title":"جزوه امتحانات نهایی دهم ریاضی","price":130000,"pages":"110 صفحه","print":"تک‌رنگ","desc":"جزوه امتحانات نهایی ریاضی پایه دهم - نیما رضایی","image":"images/math-final-10.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="math" data-grade="11" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="book-card" data-subject="math" data-grade="11" data-aos="rotate-in" data-aos-delay="500">
                         <img src="images/math-final-11.jpg" alt="جزوه امتحانات نهایی یازدهم ریاضی">
                         <h3>جزوه امتحانات نهایی یازدهم ریاضی</h3>
                         <p>قیمت: 140,000 تومان</p>
                         <button class="btn" data-details='{"id":"math-final-11","title":"جزوه امتحانات نهایی یازدهم ریاضی","price":140000,"pages":"130 صفحه","print":"تک‌رنگ","desc":"جزوه امتحانات نهایی ریاضی پایه یازدهم - نیما رضایی","image":"images/math-final-11.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="math" data-grade="12" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="book-card" data-subject="math" data-grade="12" data-aos="rotate-in" data-aos-delay="600">
                         <img src="images/math-final-12.jpg" alt="جزوه امتحانات نهایی دوازدهم ریاضی">
                         <h3>جزوه امتحانات نهایی دوازدهم ریاضی</h3>
                         <p>قیمت: 150,000 تومان</p>
-                        <button class="btn" data-details='{"id":"math-final-12","title":"جزوه امتحانات نهایی دوازدهم ریاضی","price":150000,"pages":"150 صفحه","print":"تک‌رنگ","desc":"جزوه امتحانات نهایی ریاضی پایه دوازدهم - نیما رضایی","image":"images/math-final-12.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"math-final-12","title":"جزوه امتحانات نهایی دوازدهم ریاضی","price":150000,"pages":"140 صفحه","print":"تک‌رنگ","desc":"جزوه امتحانات نهایی ریاضی پایه دوازدهم - نیما رضایی","image":"images/math-final-12.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
                 </div>
             </div>
@@ -101,46 +103,46 @@
             <div class="teacher-section" data-subject="chem">
                 <div class="teacher-info">
                     <img src="images/esmaeil.jpg" alt="اسماعیل گودرزی" class="teacher-image">
-                    <h3>اسماعیل گودرزی - دبیر شیمی کنکور</h3>
+                    <h3>اسماعیل گودرزی - دبیر شیمی</h3>
                 </div>
                 <div class="books-scroll">
-                    <div class="book-card" data-subject="chem" data-grade="10" data-aos="zoom-in">
+                    <div class="book-card" data-subject="chem" data-grade="10" data-aos="rotate-in">
                         <img src="images/chem-10.jpg" alt="جزوه کنکور دهم شیمی">
                         <h3>جزوه کنکور دهم شیمی</h3>
                         <p>قیمت: 40,000 تومان</p>
-                        <button class="btn" data-details='{"id":"chem-10","title":"جزوه کنکور دهم شیمی","price":40000,"pages":"160 صفحه","print":"تک‌رنگ","desc":"جزوه کامل شیمی پایه دهم با نکات کنکوری - اسماعیل گودرزی","image":"images/chem-10.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"chem-10","title":"جزوه کنکور دهم شیمی","price":40000,"pages":"160 صفحه","print":"تک‌رنگ","desc":"جزوه کامل شیمی پایه دهم - اسماعیل گودرزی","image":"images/chem-10.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="chem" data-grade="11" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="book-card" data-subject="chem" data-grade="11" data-aos="rotate-in" data-aos-delay="100">
                         <img src="images/chem-11.jpg" alt="جزوه کنکور یازدهم شیمی">
                         <h3>جزوه کنکور یازدهم شیمی</h3>
                         <p>قیمت: 180,000 تومان</p>
-                        <button class="btn" data-details='{"id":"chem-11","title":"جزوه کنکور یازدهم شیمی","price":180000,"pages":"210 صفحه","print":"تک‌رنگ","desc":"جزوه کامل شیمی پایه یازدهم با نکات کنکوری - اسماعیل گودرزی","image":"images/chem-11.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"chem-11","title":"جزوه کنکور یازدهم شیمی","price":180000,"pages":"210 صفحه","print":"تک‌رنگ","desc":"جزوه کامل شیمی پایه یازدهم - اسماعیل گودرزی","image":"images/chem-11.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="chem" data-grade="12" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="book-card" data-subject="chem" data-grade="12" data-aos="rotate-in" data-aos-delay="200">
                         <img src="images/chem-12.jpg" alt="جزوه کنکور دوازدهم شیمی">
                         <h3>جزوه کنکور دوازدهم شیمی</h3>
                         <p>قیمت: 190,000 تومان</p>
-                        <button class="btn" data-details='{"id":"chem-12","title":"جزوه کنکور دوازدهم شیمی","price":190000,"pages":"230 صفحه","print":"تک‌رنگ","desc":"جزوه کامل شیمی پایه دوازدهم با نکات کنکوری - اسماعیل گودرزی","image":"images/chem-12.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"chem-12","title":"جزوه کنکور دوازدهم شیمی","price":190000,"pages":"230 صفحه","print":"تک‌رنگ","desc":"جزوه کامل شیمی پایه دوازدهم - اسماعیل گودرزی","image":"images/chem-12.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="chem" data-grade="pack" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="book-card" data-subject="chem" data-grade="pack" data-aos="rotate-in" data-aos-delay="300">
                         <img src="images/chem-pack.jpg" alt="پک کامل شیمی">
                         <h3>پک کامل شیمی (هر سه جزوه)</h3>
                         <p>قیمت: 500,000 تومان</p>
-                        <button class="btn" data-details='{"id":"chem-pack","title":"پک کامل شیمی (هر سه جزوه)","price":500000,"pages":"600 صفحه","print":"تک‌رنگ","desc":"پک کامل جزوه‌های شیمی کنکور برای هر سه پایه - اسماعیل گودرزی","image":"images/chem-pack.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"chem-pack","title":"پک کامل شیمی (هر سه جزوه)","price":500000,"pages":"600 صفحه","print":"تک‌رنگ","desc":"پک کامل جزوه‌های شیمی تمام پایه‌ها - اسماعیل گودرزی","image":"images/chem-pack.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="chem" data-grade="10" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="book-card" data-subject="chem" data-grade="10" data-aos="rotate-in" data-aos-delay="400">
                         <img src="images/chem-final-10.jpg" alt="جزوه امتحانات نهایی دهم شیمی">
                         <h3>جزوه امتحانات نهایی دهم شیمی</h3>
                         <p>قیمت: 140,000 تومان</p>
                         <button class="btn" data-details='{"id":"chem-final-10","title":"جزوه امتحانات نهایی دهم شیمی","price":140000,"pages":"120 صفحه","print":"تک‌رنگ","desc":"جزوه امتحانات نهایی شیمی پایه دهم - اسماعیل گودرزی","image":"images/chem-final-10.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="chem" data-grade="11" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="book-card" data-subject="chem" data-grade="11" data-aos="rotate-in" data-aos-delay="500">
                         <img src="images/chem-final-11.jpg" alt="جزوه امتحانات نهایی یازدهم شیمی">
                         <h3>جزوه امتحانات نهایی یازدهم شیمی</h3>
                         <p>قیمت: 150,000 تومان</p>
                         <button class="btn" data-details='{"id":"chem-final-11","title":"جزوه امتحانات نهایی یازدهم شیمی","price":150000,"pages":"140 صفحه","print":"تک‌رنگ","desc":"جزوه امتحانات نهایی شیمی پایه یازدهم - اسماعیل گودرزی","image":"images/chem-final-11.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="chem" data-grade="12" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="book-card" data-subject="chem" data-grade="12" data-aos="rotate-in" data-aos-delay="600">
                         <img src="images/chem-final-12.jpg" alt="جزوه امتحانات نهایی دوازدهم شیمی">
                         <h3>جزوه امتحانات نهایی دوازدهم شیمی</h3>
                         <p>قیمت: 160,000 تومان</p>
@@ -152,56 +154,56 @@
             <div class="teacher-section" data-subject="physics">
                 <div class="teacher-info">
                     <img src="images/reza.jpg" alt="رضا رضایی" class="teacher-image">
-                    <h3>رضا رضایی - دبیر فیزیک کنکور</h3>
+                    <h3>رضا رضایی - دبیر فیزیک</h3>
                 </div>
                 <div class="books-scroll">
-                    <div class="book-card" data-subject="physics" data-grade="10" data-aos="zoom-in">
+                    <div class="book-card" data-subject="physics" data-grade="10" data-aos="rotate-in">
                         <img src="images/physics-10.jpg" alt="جزوه کنکور دهم فیزیک">
                         <h3>جزوه کنکور دهم فیزیک</h3>
                         <p>قیمت: 30,000 تومان</p>
-                        <button class="btn" data-details='{"id":"physics-10","title":"جزوه کنکور دهم فیزیک","price":30000,"pages":"150 صفحه","print":"تک‌رنگ","desc":"جزوه کامل فیزیک پایه دهم با نکات کنکوری - رضا رضایی","image":"images/physics-10.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"physics-10","title":"جزوه کنکور دهم فیزیک","price":30000,"pages":"150 صفحه","print":"تک‌رنگ","desc":"جزوه کامل فیزیک پایه دهم - رضا رضایی","image":"images/physics-10.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="physics" data-grade="11" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="book-card" data-subject="physics" data-grade="11" data-aos="rotate-in" data-aos-delay="100">
                         <img src="images/physics-11.jpg" alt="جزوه کنکور یازدهم فیزیک">
                         <h3>جزوه کنکور یازدهم فیزیک</h3>
                         <p>قیمت: 160,000 تومان</p>
-                        <button class="btn" data-details='{"id":"physics-11","title":"جزوه کنکور یازدهم فیزیک","price":160000,"pages":"200 صفحه","print":"تک‌رنگ","desc":"جزوه کامل فیزیک پایه یازدهم با نکات کنکوری - رضا رضایی","image":"images/physics-11.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"physics-11","title":"جزوه کنکور یازدهم فیزیک","price":160000,"pages":"200 صفحه","print":"تک‌رنگ","desc":"جزوه کامل فیزیک پایه یازدهم - رضا رضایی","image":"images/physics-11.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="physics" data-grade="12" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="book-card" data-subject="physics" data-grade="12" data-aos="rotate-in" data-aos-delay="200">
                         <img src="images/physics-12.jpg" alt="جزوه کنکور دوازدهم فیزیک">
                         <h3>جزوه کنکور دوازدهم فیزیک</h3>
                         <p>قیمت: 170,000 تومان</p>
-                        <button class="btn" data-details='{"id":"physics-12","title":"جزوه کنکور دوازدهم فیزیک","price":170000,"pages":"220 صفحه","print":"تک‌رنگ","desc":"جزوه کامل فیزیک پایه دوازدهم با نکات کنکوری - رضا رضایی","image":"images/physics-12.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"physics-12","title":"جزوه کنکور دوازدهم فیزیک","price":170000,"pages":"220 صفحه","print":"تک‌رنگ","desc":"جزوه کامل فیزیک پایه دوازدهم - رضا رضایی","image":"images/physics-12.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="physics" data-grade="pack" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="book-card" data-subject="physics" data-grade="pack" data-aos="rotate-in" data-aos-delay="300">
                         <img src="images/physics-pack.jpg" alt="پک کامل فیزیک">
                         <h3>پک کامل فیزیک (هر سه جزوه)</h3>
                         <p>قیمت: 450,000 تومان</p>
-                        <button class="btn" data-details='{"id":"physics-pack","title":"پک کامل فیزیک (هر سه جزوه)","price":450000,"pages":"570 صفحه","print":"تک‌رنگ","desc":"پک کامل جزوه‌های فیزیک کنکور برای هر سه پایه - رضا رضایی","image":"images/physics-pack.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"physics-pack","title":"پک کامل فیزیک (هر سه جزوه)","price":450000,"pages":"570 صفحه","print":"تک‌رنگ","desc":"پک کامل جزوه‌های فیزیک تمام پایه‌ها - رضا رضایی","image":"images/physics-pack.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="physics" data-grade="10" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="book-card" data-subject="physics" data-grade="10" data-aos="rotate-in" data-aos-delay="400">
                         <img src="images/physics-final-10.jpg" alt="جزوه امتحانات نهایی دهم فیزیک">
                         <h3>جزوه امتحانات نهایی دهم فیزیک</h3>
                         <p>قیمت: 120,000 تومان</p>
                         <button class="btn" data-details='{"id":"physics-final-10","title":"جزوه امتحانات نهایی دهم فیزیک","price":120000,"pages":"100 صفحه","print":"تک‌رنگ","desc":"جزوه امتحانات نهایی فیزیک پایه دهم - رضا رضایی","image":"images/physics-final-10.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="physics" data-grade="11" data-aos="zoom-in" data-aos-delay="500">
-                        <img src="images/physics-final-11.jpg" alt="جزوه امتحانات نهایی یازدهم">
-                            <h3>جزوه امتحانات نهایی یازدهم</h3>
-                            <p>قیمت: 130,000 تومان</p>
-                            <button class="btn" data-details='{"id":"physics-final-11","title":"جزوه امتحانات نهایی یازدهم فیزیک","price":130000,"pages":"120 صفحه","print":"تک‌رنگ","desc":"جزوه امتحانات نهایی فیزیک پایه یازدهم - رضا رضایی","image":"images/phys-final-11.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                    <div class="book-card" data-subject="physics" data-grade="11" data-aos="rotate-in" data-aos-delay="500">
+                        <img src="images/physics-final-11.jpg" alt="جزوه امتحانات نهایی یازدهم فیزیک">
+                        <h3>جزوه امتحانات نهایی یازدهم فیزیک</h3>
+                        <p>قیمت: 130,000 تومان</p>
+                        <button class="btn" data-details='{"id":"physics-final-11","title":"جزوه امتحانات نهایی یازدهم فیزیک","price":130000,"pages":"120 صفحه","print":"تک‌رنگ","desc":"جزوه امتحانات نهایی فیزیک پایه یازدهم - رضا رضایی","image":"images/physics-final-11.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
-                    <div class="book-card" data-subject="physics" data-grade="12" data-aos="zoom-in" data-aos-delay="600">
-                        <img src="images/physics-final-12.jpg" alt="جزوه امتحانات نهایی دوازدهم">
-                        <h3>جزوه امتحانات نهایی دوازدهم</h3>
+                    <div class="book-card" data-subject="physics" data-grade="12" data-aos="rotate-in" data-aos-delay="600">
+                        <img src="images/physics-final-12.jpg" alt="جزوه امتحانات نهایی دوازدهم فیزیک">
+                        <h3>جزوه امتحانات نهایی دوازدهم فیزیک</h3>
                         <p>قیمت: 140,000 تومان</p>
-                        <button class="btn" data-details='{"id":"physics-final-12","title":"جزوه امتحانات نهایی دوازدهم فیزیک","price":140000,"pages":"140 صفحه","print":"تک‌رنگ","desc":"جزوه امتحانات نهایی فیزیک پایه دوازدهم - رضا رضایی","image":"images/phys-final-12.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
+                        <button class="btn" data-details='{"id":"physics-final-12","title":"جزوه امتحانات نهایی دوازدهم فیزیک","price":140000,"pages":"140 صفحه","print":"تک‌رنگ","desc":"جزوه امتحانات نهایی فیزیک پایه دوازدهم - رضا رضایی","image":"images/physics-final-12.jpg"}'>مشاهده جزئیات و افزودن به سبد خرید</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="notes-info" aria-label="نکات مهم درباره جزوه‌ها">
+        <section class="notes-info" data-aos="fade-up">
             <h2>نکته مهم درباره جزوه‌ها</h2>
             <p>جزوه‌های ارائه‌شده صرفاً برای استفاده در کنار کلاس‌های آموزشی طراحی شده‌اند و به‌هیچ‌وجه برای خودخوانی مناسب نیستند. برای یادگیری کامل مفاهیم و موفقیت در کنکور و امتحانات نهایی، شرکت در کلاس‌های حضوری یا آنلاین الزامی است.</p>
         </section>
@@ -210,7 +212,7 @@
     <div id="bookModal" class="modal">
         <div class="modal-content">
             <span class="close">×</span>
-            <img id="modalImage" src="" alt="جزوه تصویر" class="modal-image">
+            <img id="modalImage" src="" alt="" class="modal-image">
             <h2 id="modalTitle"></h2>
             <div class="modal-details">
                 <p>قیمت: <span id="modalPrice"></span></p>
@@ -231,8 +233,8 @@
             <div id="userInfoForm">
                 <h3>اطلاعات تماس</h3>
                 <input type="text" id="userName" placeholder="نام و نام خانوادگی">
-                <input type="tel" id="userPhone" placeholder="شماره تماس">
-                <button class="btn checkout">نهایی کردن خرید</button>
+                <input type="text" id="userPhone" placeholder="شماره تماس">
+                <button class="btn checkout">نهایی کردن سفارش</button>
             </div>
         </div>
     </div>
@@ -241,11 +243,31 @@
         <div class="footer-content">
             <p>تمامی حقوق برای پلتفرم آموزشی کنکور محفوظ است © 1404</p>
             <div class="social-icons">
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
     </footer>
+
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 50, density: { enable: true, value_area: 800 } },
+                color: { value: '#6c5ce7' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#6c5ce7', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: true }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' }, resize: true },
+                modes: { grab: { distance: 200, line_linked: { opacity: 0.5 } }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+    </script>
 </body>
 </html>

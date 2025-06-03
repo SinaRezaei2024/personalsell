@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Vazir';
     src: url('fonts/Vazir-Medium-FD.woff2') format('woff2'),
-         url('fonts/Vazir-Medium-FD.ttf') format('ttf');
+         url('fonts/Vazir-Medium-FD.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -14,32 +14,50 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1e272e, #2d3436);
-    color: #333;
-    min-height: 100vh;
+    background: linear-gradient(135deg, #1e272e, #2d3436, #6c5ce7);
+    color: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 header {
     background: linear-gradient(90deg, #2d3436, #1e272e);
-    padding: 10px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 10;
 }
 
 .logo {
     text-align: center;
+    animation: fadeIn 1s ease;
 }
 
 .logo h1 {
     font-size: clamp(26px, 5vw, 34px);
     color: #f1c40f;
+    transition: transform 0.3s ease;
+}
+
+.logo h1:hover {
+    transform: scale(1.05);
 }
 
 .logo p {
-    font-size: clamp(14px, 3vw, 14px);
+    font-size: clamp(14px, 3vw, 18px);
     color: #dfe6e9;
     margin-top: 5px;
 }
@@ -56,14 +74,13 @@ header {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    z-index: 10;
 }
 
 .cart-icon:hover {
-    transform: scale(1.1);
-    background: #00b894;
+    transform: rotate(360deg);
+    background: #6c5ce7;
     color: #fff;
-    box-shadow: 0 0 10px rgba(0, 184, 148, 0.5);
+    box-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
 }
 
 .cart-icon i {
@@ -74,7 +91,7 @@ header {
     position: absolute;
     top: -8px;
     right: -8px;
-    background: #00b894;
+    background: #6c5ce7;
     color: #fff;
     border-radius: 50%;
     width: clamp(18px, 4vw, 22px);
@@ -90,6 +107,8 @@ main {
     padding: clamp(20px, 5vw, 40px);
     max-width: 100%;
     margin: 0 auto;
+    position: relative;
+    z-index: 5;
 }
 
 .filters {
@@ -107,7 +126,7 @@ main {
 }
 
 .filter-group h3 {
-    font-size: clamp(18px, 4vw, 22px);
+    font-size: clamp(18px, 4vw, 24px);
     color: #f1c40f;
     margin-bottom: 10px;
 }
@@ -119,28 +138,28 @@ main {
     border-radius: 8px;
     padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 20px);
     margin: 5px;
-    font-size: clamp(12px, 3vw, 16px);
+    font-size: clamp(14px, 3.5vw, 18px);
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow: 0.3s;
 }
 
 .filter-btn.active, .filter-btn:hover {
-    background: #00b894;
+    background: #6c5ce7;
     color: #fff;
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 184, 148, 0.5);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
 }
 
 .books {
     background: rgba(255, 255, 255, 0.1);
     padding: clamp(20px, 5vw, 30px);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    border: 1px solid #f1c40f;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    border: 1px solid #6c5ce7;
 }
 
 h2 {
-    font-size: clamp(24px, 6vw, 32px);
+    font-size: clamp(26px, 6vw, 34px);
     color: #f1c40f;
     margin-bottom: 20px;
     text-align: center;
@@ -164,11 +183,11 @@ h2 {
     border-radius: 50%;
     border: 2px solid #f1c40f;
     object-fit: cover;
-    box-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
+    box-shadow: 0 0 20px rgba(241, 196, 15, 0.5);
 }
 
 .teacher-info h3 {
-    font-size: clamp(18px, 4vw, 22px);
+    font-size: clamp(18px, 4vw, 24px);
     color: #dfe6e9;
 }
 
@@ -179,7 +198,7 @@ h2 {
     padding: 15px;
     scroll-snap-type: x mandatory;
     scrollbar-width: thin;
-    scrollbar-color: #00b894 #2d3436;
+    scrollbar-color: #6c5ce7 #2d3436;
 }
 
 .books-scroll::-webkit-scrollbar {
@@ -192,19 +211,25 @@ h2 {
 }
 
 .books-scroll::-webkit-scrollbar-thumb {
-    background: #00b894;
+    background: #6c5ce7;
     border-radius: 4px;
 }
 
 .book-card {
     background: rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 15px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0,0.3);
     flex: 0 0 clamp(220px, 40vw, 280px);
     scroll-snap-align: center;
+    perspective: 1000px;
+}
+
+.book-card:hover {
+    transform: rotateY(5deg) translateY(-5px);
+    box-shadow: 0 8px 24px rgba(108, 92, 231, 0.3);
 }
 
 .book-card.single {
@@ -217,11 +242,6 @@ h2 {
     max-width: clamp(300px, 80vw, 400px);
 }
 
-.book-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
 .book-card img {
     width: 100%;
     max-width: 180px;
@@ -231,7 +251,7 @@ h2 {
 }
 
 .book-card h3 {
-    font-size: clamp(16px, 4vw, 20px);
+    font-size: clamp(14px, 4vw, 20px);
     color: #dfe6e9;
     margin-bottom: 8px;
 }
@@ -247,27 +267,27 @@ h2 {
     color: #2d3436;
     padding: clamp(10px, 2vw, 12px);
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     width: 100%;
-    max-width: 180px;
-    font-size: clamp(14px, 3vw, 16px);
+    max-width: 200px;
+    font-size: clamp(14px, 3.5vw, 18px);
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover {
-    background: #00b894;
+    background: #6c5ce7;
     color: #fff;
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 184, 148, 0.5);
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(108, 92, 231, 0.5);
 }
 
 .notes-info {
     background: rgba(255, 255, 255, 0.1);
     padding: 15px;
     margin-top: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0.3);
     border: 1px solid #f1c40f;
     text-align: center;
 }
@@ -284,74 +304,85 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0.7);
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    animation: fadeIn 0.3s ease;
+    animation: none;
+    fadeIn 0.3s ease;
 }
 
 .modal-content {
     background: #fff;
     color: #333;
-    padding: 20px;
+    padding: 15px;
     border-radius: 12px;
-    max-width: clamp(300px, 90vw, 450px);
-    max-height: 90vh;
+    max-width: clamp(260px, 80vw, 360px);
+    max-height: 80vh;
     overflow-y: auto;
     text-align: center;
-    border: 1px solid #f1c40f;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    animation: slideIn 0.3s ease;
+    border: 2px solid #f1c40f;
+    box-shadow: 0 8px 20px rgba(0, 0,0, 0.4);
+    animation: none;
+    bounceIn 0.5s ease;
 }
 
 .modal-image {
     width: 100%;
-    max-width: 200px;
+    max-width: 160px;
     height: auto;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .close, .cart-close {
+    background: #fff;
+    color: #2d3436;
+    border-radius: 50%;
+    width: clamp(24px, 6vw, 28px);
+    height: clamp(24px, 6vw, 28px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: 10px;
-    right: 15px;
-    font-size: clamp(20px, 5vw, 24px);
-    color: #2d3436;
+    right: 10px;
+    font-size: clamp(14px, 4vw, 16px);
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .close:hover, .cart-close:hover {
-    color: #00b894;
+    transform: #6c5ce7;
+    box-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+    transform: scale(1.2);
 }
 
 .modal-content h2 {
-    font-size: clamp(18px, 4vw, 22px);
+    content font-size: clamp(20px, 4vw, 24px);
     color: #2d3436;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .modal-details p {
-    font-size: clamp(14px, 3vw, 16px);
+    font-size: clamp(12px, 3vw, 16px);
     color: #333;
     margin-bottom: 8px;
 }
 
 .add-to-cart {
-    background: #00b894;
+    background: #6c5ce7;
     color: #fff;
     margin-top: 10px;
 }
 
 .add-to-cart:hover {
-    background: #009974;
-    box-shadow: 0 0 10px rgba(0, 184, 148, 0.5);
+    background: #5a4ad0;
+    box-shadow: 0 0 8px rgba(108, 92, 231, 0.5);
 }
 
 #cartItems {
-    max-height: 50vh;
+    max-height: 300px;
     overflow-y: auto;
     margin-bottom: 15px;
 }
@@ -376,7 +407,7 @@ h2 {
 .cart-item-image {
     width: clamp(50px, 10vw, 60px);
     height: auto;
-    border-radius: 8px;
+    border-radius: 6px;
     margin-left: 10px;
 }
 
@@ -413,18 +444,18 @@ h2 {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 14px;
+    font-size: clamp(12px, 3vw, 14px);
     transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .quantity-btn:hover {
-    background: #00b894;
+    background: #6c5ce7;
     color: #fff;
     transform: scale(1.1);
 }
 
 #totalPrice {
-    font-size: clamp(16px, 4vw, 18px);
+    font-size: clamp(14px, 4vw, 18px);
     color: #333;
 }
 
@@ -432,11 +463,11 @@ h2 {
     margin-top: 15px;
     padding: 15px;
     background: #f5f5f5;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 #userInfoForm h3 {
-    font-size: clamp(16px, 4vw, 18px);
+    font-size: clamp(14px, 4vw, 18px);
     color: #333;
     margin-bottom: 10px;
 }
@@ -453,33 +484,33 @@ h2 {
 
 #userInfoForm input:focus {
     outline: none;
-    border-color: #00b894;
-    box-shadow: 0 0 5px rgba(0, 184, 148, 0.3);
+    border-color: #6c5ce7;
+    box-shadow: 0 0 5px rgba(108, 92, 231, 0.3);
 }
 
 .checkout {
-    background: #00b894;
+.btn    background: #6c5ce7;
     color: #fff;
     width: 100%;
     margin-top: 10px;
 }
 
 .checkout:hover {
-    background: #009974;
-    box-shadow: 0 0 10px rgba(0, 184, 148, 0.5);
+    background: #5a4ad0;
+    box-shadow: 0 0 8px rgba(108, 92, 231, 0.5);
 }
 
 .message {
     padding: 10px;
     border-radius: 8px;
-    font-size: clamp(14px, 3vw, 16px);
+    font-size: clamp(12px, 3vw, 14px);
     margin-top: 10px;
     text-align: center;
 }
 
 .message.success {
     background: #d4edda;
-    color: #155724;
+    color: #1557;
 }
 
 .message.error {
@@ -492,7 +523,19 @@ footer {
     padding: 20px;
     text-align: center;
     margin-top: 30px;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 -4px 12px rgba(0, 0,0, 0.4);
+    position: relative;
+}
+
+footer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(108, 92, 231, 0.2), transparent);
+    z-index: 0;
 }
 
 .footer-content {
@@ -500,6 +543,8 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    z-position: relative;
+    z-index: 1;
 }
 
 footer p {
@@ -508,7 +553,6 @@ footer p {
 }
 
 .social-icons {
-    {
     display: flex;
     gap: 20px;
 }
@@ -520,13 +564,9 @@ footer p {
 }
 
 .social-icon:hover {
-    color: #00b894;
-    transform: scale(1.2);
-}
-
-@keyframes slideIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    color: #6c5ce7;
+    transform: scale(1.3);
+    animation: bounce 0.5s ease;
 }
 
 @keyframes fadeIn {
@@ -534,10 +574,27 @@ footer p {
     to { opacity: 1; }
 }
 
+@keyframes rotateIn {
+    from { opacity: 0; transform: rotateY(-20deg); }
+    to { opacity: 1; transform: rotateY(0); }
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 1; transform: scale(1.2); }
+    to { opacity: 1; transform: scale(1); }
+}
+
 @keyframes pulse {
     0% { transform: scale(1); }
-    to { transform: scale(50% { transform 1.05); }
-    100% { transform:scale(1); }
+    50% { transform: scale(1.05); }
+    to { opacity: 100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    to { transform: translateY(0); }
 }
 
 .btn:active {
@@ -549,7 +606,7 @@ footer p {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 40px;
+        padding: 15px 30px;
     }
 
     .cart-icon {
@@ -569,7 +626,7 @@ footer p {
     }
 
     .logo h1 {
-        font-size: clamp(22px, 6vw, 28px);
+        font-size: clamp(22px, 5vw, 28px);
     }
 
     .logo p {
@@ -577,8 +634,8 @@ footer p {
     }
 
     .cart-icon {
-        width: clamp(36px, 14px, 44vw,);
-        height: clamp(36px, 14px, vw, 44px);
+        width: clamp(36px, 10vw, 44px);
+        height: clamp(36px, 10vw, 44px);
     }
 
     .cart-count {
@@ -596,12 +653,12 @@ footer p {
     }
 
     .modal-content {
-        max-width: clamp(280px, 90vw, 400px);
-        padding: 15px;
+        max-width: clamp(240px, 85vw, 320px);
+        padding: 12px;
     }
 
     .modal-image {
-        max-width: 180px;
+        max-width: 140px;
     }
 
     .cart-item-image {
@@ -620,21 +677,21 @@ footer p {
     }
 
     .book-card img {
-        max-width: 160px;
+        max-width: 140px;
     }
 
     .modal-content {
-        max-width: clamp(260px, 90vw, 360px);
-        padding: 12px;
+        max-width: clamp(220px, 80vw, 280px);
+        padding: 10px;
     }
 
     .modal-image {
-        max-width: 160px;
+        max-width: 120px;
     }
 
     .btn {
-        max-width: 150px;
-        font-size: clamp(12px, 3vw, 14px);
+        max-width: 160px;
+        font-size: clamp(12px, 3vw, 16px);
     }
 
     .cart-item-image {
